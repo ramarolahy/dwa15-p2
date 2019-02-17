@@ -1,0 +1,23 @@
+.text__top {
+    color: #fff;
+}
+
+.mdl-card {
+    position: relative;
+}
+
+.meme-text__bg {
+    background-color: rgba(0,0,0,0.75);
+}
+
+.meme-text__top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.meme-text__bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
