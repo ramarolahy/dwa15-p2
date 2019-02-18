@@ -15,4 +15,5 @@
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <!--    CUSTOM STYLESHEET   -->
 <link rel="stylesheet" href="../styles/styles.css">
-
+<!--    HTML2CANVAS TO SAVE IMAGE   -->
+<script src='../js/html2canvas.min.js'></script>

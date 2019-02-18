@@ -1,23 +1,34 @@
 .text__top {
     color: #fff;
+    line-height: 1.3;
 }
 
 .mdl-card {
     position: relative;
 }
 
-.meme-text__bg {
-    background-color: rgba(0,0,0,0.75);
+.quote-text__bg {
+    background-color: rgba(0,0,0,0.50);
 }
 
-.meme-text__top {
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
-.meme-text__bottom {
+.quote-text {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.mdl-checkbox__input {
+
+}
+
+.wrap-card-body__radio {
+    align-content: center;
+}
+
+.col-7 {
+    position: relative;
+}
+#quoteImg {
+    position: absolute;
+    top:0;
 }

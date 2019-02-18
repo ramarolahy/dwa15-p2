@@ -2,13 +2,15 @@
 
     session_start();
 
-    if(isset($_SESSION['results'])){
-        $results = $_SESSION['results'];
+    if (isset($_SESSION['state'])) {
+        $state = $_SESSION['state'];
 
-        $books = $results['books'];
-        $searchTerm = $results['searchTerm'];
-        $bookCount = $results['bookCount'];
-        $caseSensitive = $results['caseSensitive'];
+        $imgBg = $state['imgBg'];
+        $quote = $state['quote'];
+        $author = $state['author'];
+        $addBackground = $state['addBackground'];
+        $textSize = $state['textSize'];
+        $textBg = $state['textBg'];
     }
 
 # Clear the session: We can use use unset here since it's the only place we are using the session. We would not want
