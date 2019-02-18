@@ -16,10 +16,12 @@
     <main class='container'>
         <div class='row'>
             <div class='col'>
-                <h3>Make Pretty Quotes!</h3>
-                <p class='mdl-card__title-text'>
-                    Have fun creating some awesome quote cards!
-                </p>
+                <h3 class='text-center'>Make Pretty Quotes!</h3>
+                <div class='card text-center border-0 bg-light py-3'>
+                    <p class='text-center mdl-card__title-text'>
+                        Have fun creating some awesome quote cards!
+                    </p>
+                </div>
             </div>
         </div>
         <div class='card py-5 mt-5 border-0 bg-light'>
@@ -33,38 +35,37 @@
 
                             <div class='card-body row wrap-card-body__radio'>
                                 <div class='col-3'>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                    <label class="" for="option-1">
                                         <input type="radio" id="option-1" class="mdl-radio__button" name="bgOption"
-                                               value="road.jpeg" <?php if(isset($imgBg) and $imgBg == 'road.jpeg') echo
+                                               value="road.jpeg" <?php if($selectedImg === 'road.jpeg') echo
                                         'checked'
                                         ?>>
-                                        <img src='./static/img/road.jpeg' class='mdl-icon-toggle__label material-icons'
-                                             alt='road'>
+                                        <img src='./static/img/road.jpeg' class='' alt='road'>
                                     </label>
                                 </div>
                                 <div class='col-3'>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                    <label class="" for="option-2">
                                         <input type="radio" id="option-2" class="mdl-radio__button" name="bgOption"
                                                value="fall.jpg"
-                                            <?php if(isset($imgBg) and $imgBg == 'fall.jpg') echo 'checked' ?>>
-                                        <img src='./static/img/fall.jpg' class='mdl-icon-toggle__label' alt='fall'>
+                                            <?php if($selectedImg === 'fall.jpg') echo 'checked' ?>>
+                                        <img src='./static/img/fall.jpg' class='' alt='fall'>
                                     </label>
                                 </div>
                                 <div class='col-3'>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                    <label class="" for="option-3">
                                         <input type="radio" id="option-3" class="mdl-radio__button" name="bgOption"
                                                value="butterflies.jpeg"
-                                            <?php if(isset($imgBg) and $imgBg == 'butterflies.jpeg') echo 'checked' ?>>
-                                        <img src='./static/img/butterflies.jpeg' class='mdl-icon-toggle__label'
+                                            <?php if($selectedImg === 'butterflies.jpeg') echo 'checked' ?>>
+                                        <img src='./static/img/butterflies.jpeg' class=''
                                              alt='butterflies'>
                                     </label>
                                 </div>
                                 <div class='col-3'>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                                    <label class="" for="option-4">
                                         <input type="radio" id="option-4" class="mdl-radio__button" name="bgOption"
                                                value="leaves.jpeg"
-                                            <?php if(isset($imgBg) and $imgBg == 'leaves.jpeg') echo 'checked' ?>>
-                                        <img src='./static/img/leaves.jpeg' class='mdl-icon-toggle__label' alt='leaves'>
+                                            <?php if($selectedImg === 'leaves.jpeg') echo 'checked' ?>>
+                                        <img src='./static/img/leaves.jpeg' class='' alt='leaves'>
                                     </label>
                                 </div>
                             </div>

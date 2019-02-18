@@ -30,6 +30,11 @@
     background-position: center;
 }
 
+.mdl-card__title-text {
+    display: inline-block;
+    align-self: normal;
+}
+
 .wrap-card-body__radio {
     align-content: center;
 }
@@ -41,4 +46,22 @@
     position: absolute;
     z-index: 2;
     top:0;
+}
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+}
+
+[type=radio] + img {
+    width: 60px;
+    height: 40px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+[type=radio]:checked + img {
+    -webkit-box-shadow: 0 0 3px 2px cadetblue;
+    -moz-box-shadow: 0 0 3px 2px cadetblue;
+    box-shadow: 0 0 3px 2px cadetblue;
 }

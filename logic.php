@@ -6,6 +6,7 @@
         $state = $_SESSION['state'];
 
         $imgBg = $state['imgBg'];
+        $selectedImg = $state['selectedImg'];
         $quote = $state['quote'];
         $author = $state['author'];
         $addBackground = $state['addBackground'];

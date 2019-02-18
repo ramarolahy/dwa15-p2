@@ -6,13 +6,13 @@
     $addBackground = isset($_GET['addBackground']);
     $quote = $_GET['quote'];
     $textBg = 'quote-text__bg';
-
+    $selectedImg = $_GET['bgOption'];
 
     function setBackground () {
         $bgImages = ['butterflies.jpeg', 'fall.jpg', 'leaves.jpeg', 'road.jpeg'];
-
+        global $selectedImg;
         if($_GET['bgOption']) {
-            $imgBg = "background-image:url('/static/img/". $_GET['bgOption'] . "');";
+            $imgBg = "background-image:url('/static/img/". $selectedImg . "');";
         } else {
             $imgBg = "background-image:url('/static/img/". $bgImages[array_rand($bgImages)] . "');";
         }
@@ -23,6 +23,7 @@
 
     $_SESSION['state'] = [
         'imgBg' => $imgBg,
+        'selectedImg' => $selectedImg,
         'quote' => $quote,
         'author' => $author,
         'addBackground' => $addBackground,
