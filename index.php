@@ -73,9 +73,10 @@
                             <div class='card-body'>
                                 <h5 class='mdl-card__title-text'>Add quote</h5>
                             </div>
-                            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                <input class='mdl-textfield__input' type='text' id='bottomText' name='quote'>
-                                <label class='mdl-textfield__label' for='quote'>Quote...</label>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <textarea class="mdl-textfield__input" type="text" rows= "3" id='quote' name='quote'
+                                ></textarea>
+                                <label class="mdl-textfield__label" for="quote">Enter Quote...</label>
                             </div>
                             <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                 <input class='mdl-textfield__input' type='text' id='bottomText' name='author'>
