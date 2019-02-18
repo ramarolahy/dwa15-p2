@@ -9,7 +9,6 @@
         $quote = $state['quote'];
         $author = $state['author'];
         $addBackground = $state['addBackground'];
-        $textSize = $state['textSize'];
         $textBg = $state['textBg'];
     }
 

@@ -24,7 +24,6 @@
         </div>
         <div class='card py-5 mt-5 border-0 bg-light'>
             <div class='row'>
-
                 <div class='col-5 pl-5'>
                     <form action='QuoteMaker.php' method='get'>
                         <div class='card border-0 px-4 pb-2'>
@@ -71,38 +70,37 @@
                             </div>
 
                             <div class='card-body'>
-                                <h5 class='mdl-card__title-text'>Add quote</h5>
-                            </div>
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <textarea class="mdl-textfield__input" type="text" rows= "3" id='quote' name='quote'
+                                <h5 class='mdl-card__title-text'>Add a quote</h5>
+
+                                <div class="mdl-textfield mdl-js-textfield">
+                                <textarea class="mdl-textfield__input" type="text" rows= "2" id='quote' name='quote'
+                                          required
                                 ></textarea>
-                                <label class="mdl-textfield__label" for="quote">Enter Quote...</label>
-                            </div>
-                            <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                <input class='mdl-textfield__input' type='text' id='bottomText' name='author'>
-                                <label class='mdl-textfield__label' for='author'>Author...</label>
+                                    <label class="mdl-textfield__label" for="quote">Quote...</label>
+                                </div>
+                                <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input class='mdl-textfield__input' type='text' id='bottomText' name='author' required>
+                                    <label class='mdl-textfield__label' for='author'>Author...</label>
+                                </div>
                             </div>
                             <div class='card bg-light border-0 py-3 px-3'>
-                                <div class='row'>
-                                    <div class='col-10'>
-                                        <h5 class='mdl-card__title-text'>Add Text Background</h5>
-                                    </div>
-                                    <div class='col-2'>
-                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
-                                            <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input"
-                                                   name='addBackground' <?php if(isset($addBackground) and
-                                                   $addBackground) echo checked ?> >
-                                            <span class="mdl-checkbox__label"></span>
-                                        </label>
+                                <div class='card-body'>
+                                    <div class='row'>
+                                        <div class='col-10'>
+                                            <label class='mdl-card__title-text' for='addBackground'>Add Text Background</label>
+                                        </div>
+                                        <div class='col-2'>
+                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                                <input type="checkbox" id="addBackground" class="mdl-checkbox__input"
+                                                       name='addBackground' <?php if(isset($addBackground) and
+                                                    $addBackground) echo checked ?> >
+                                                <span class="mdl-checkbox__label"></span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class='card-body'>
-                                <h5 class='mdl-card__title-text'>Text Size: <?php echo
-                                    $textSize ?></h5>
-                            </div>
-                            <input class='mdl-slider mdl-js-slider' type='range'
-                                   min='16' max='44' value='28' tabindex='0' name='textSize'>
+
                             <div class='card-body'>
                                 <button class=" float-right mdl-button mdl-js-button mdl-button--raised
                                 mdl-js-ripple-effect
@@ -118,15 +116,15 @@
                 <div class='col-7 pr-5'>
                     <div id='quoteImg' class='wrap-quote mdl-card mdl-shadow--2dp' style='width: auto;'></div>
                     <div class='wrap-quote mdl-card mdl-shadow--2dp'
-                         style="width:auto; height:500px;background-image:url('<?php echo '/static/img/'. $imgBg
-                    ?>'); background-repeat: no-repeat;background-size: cover;background-position: center" id='myQuote'>
+                         style="<?php echo ($imgBg) ? $imgBg : "background-color:#313f48;" ?>"
+                         id='myQuote'>
 
                             <div class='<?php if($addBackground) echo $textBg?> quote-text text-center py-5'>
-                                <span class='text__top' style='font-size:<?= $textSize?>px;'><?php echo $quote
+                                <span class='text__top'><?php echo $quote
                                     ?></span>
                                 <br><br>
-                                <span class='text__top' style='font-size:<?= $textSize?>px;'><?php echo '-- ' .
-                                        $author . ' --'
+                                <span class='text__top'><?php if(isset($author)) echo '~~ ' .
+                                        $author . ' ~~'
                                     ?></span>
                             </div>
                     </div>
