@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class='card py-5 mt-5 border-0 bg-light'>
+        <div class='card py-5 mt-2 border-0 bg-light'>
             <div class='row'>
                 <div class='col-5 pl-5'>
                     <form action='QuoteMaker.php' method='get'>
@@ -88,14 +88,12 @@
                                 <div class='card-body'>
                                     <div class='row'>
                                         <div class='col-10'>
-                                            <label class='mdl-card__title-text' for='addBackground'>Add Text Background</label>
-                                        </div>
-                                        <div class='col-2'>
                                             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
                                                 <input type="checkbox" id="addBackground" class="mdl-checkbox__input"
                                                        name='addBackground' <?php if(isset($addBackground) and
                                                     $addBackground) echo checked ?> >
-                                                <span class="mdl-checkbox__label"></span>
+                                                <label class='mdl-checkbox__label mdl-card__title-text'
+                                                       for='addBackground'>Add Text Background</label>
                                             </label>
                                         </div>
                                     </div>
