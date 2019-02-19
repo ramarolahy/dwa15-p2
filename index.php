@@ -9,7 +9,7 @@
     <title>DWA15 - Project 2</title>
 </head>
 <body>
-<header class='mdl-layout__header'>
+<header class='mdl-layout__fixed-header'>
     <?php include './includes/header.php' ?>
 </header>
 <div class='mdl-layout mdl-js-layout mdl-layout--fixed-header'>
