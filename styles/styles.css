@@ -18,6 +18,12 @@
     width: 100%;
 }
 
+.default_quote {
+    text-align: center;
+    height: 500px;
+    padding-top: 200px;
+}
+
 .mdl-textfield {
     width: 100%;
 }

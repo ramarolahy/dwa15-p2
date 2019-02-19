@@ -119,7 +119,16 @@
                     <div class='wrap-quote mdl-card mdl-shadow--2dp'
                          style="<?php echo ($imgBg) ? $imgBg : "background-color:#313f48;" ?>"
                          id='myQuote'>
-
+                            <?php
+                                if(!$quote) {
+                                    echo "
+                                        <div class='default_quote'>
+                                            <span class='text__top'>\"A nice quote for a nice day!\"</span><br>
+                                            <span class='text__top'>~&nbsp~&nbsp~</span>
+                                        </div>
+                                    ";
+                                }
+                            ?>
                             <div class='<?php if($addBackground) echo $textBg?> quote-text text-center py-5'>
                                 <span class='text__top'><?php echo $quote
                                     ?></span>
