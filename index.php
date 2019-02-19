@@ -13,8 +13,8 @@
     <?php include './includes/header.php' ?>
 </header>
 <div class='mdl-layout mdl-js-layout mdl-layout--fixed-header'>
-    <main class='container'>
-        <div class='row'>
+    <main class='container pt-5'>
+        <div class='row mt-4'>
             <div class='col'>
                 <h3 class='text-center'>Make Pretty Quotes!</h3>
                 <div class='card text-center border-0 bg-light py-3'>
