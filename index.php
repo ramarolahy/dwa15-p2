@@ -28,6 +28,7 @@
             <div class='row'>
                 <div class='col-5 pl-5'>
                     <form action='QuoteMaker.php' method='get'>
+                        
                         <div class='card border-0 px-4 pb-2'>
                             <div class='card-body'>
                                 <h5 class='mdl-card__title-text'>Choose Background</h5>
