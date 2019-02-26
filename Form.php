@@ -76,7 +76,7 @@
                     # Test failed
                     if (!$test) {
                         $method = $rule . 'Message';
-                        $errors[] = 'The value for ' . $fieldName . ' ' . $this->$method($parameter);
+                        $errors[$fieldName] = 'The value for ' . $fieldName . ' ' . $this->$method($parameter);
                         # Only indicate one error per field
                         break;
                     }

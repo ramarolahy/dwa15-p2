@@ -37,8 +37,8 @@
                             <div class='card-body row wrap-card-body__radio'>
                                 <div class='col-3'>
                                     <label class="" for="option-1">
-                                        <input type="radio" id="option-1" class="mdl-radio__button" name="bgOption"
-                                               value="road.jpeg" <?php if($selectedImg === 'road.jpeg') echo
+                                        <input type="radio" id="option-1" class="mdl-radio__button" name="selectedImg"
+                                               value="road.jpeg" <?php if ($selectedImg === 'road.jpeg') echo
                                         'checked'
                                         ?>>
                                         <img src='./static/img/road.jpeg' class='' alt='road'>
@@ -46,26 +46,26 @@
                                 </div>
                                 <div class='col-3'>
                                     <label class="" for="option-2">
-                                        <input type="radio" id="option-2" class="mdl-radio__button" name="bgOption"
+                                        <input type="radio" id="option-2" class="mdl-radio__button" name="selectedImg"
                                                value="fall.jpg"
-                                            <?php if($selectedImg === 'fall.jpg') echo 'checked' ?>>
+                                            <?php if ($selectedImg === 'fall.jpg') echo 'checked' ?>>
                                         <img src='./static/img/fall.jpg' class='' alt='fall'>
                                     </label>
                                 </div>
                                 <div class='col-3'>
                                     <label class="" for="option-3">
-                                        <input type="radio" id="option-3" class="mdl-radio__button" name="bgOption"
+                                        <input type="radio" id="option-3" class="mdl-radio__button" name="selectedImg"
                                                value="butterflies.jpeg"
-                                            <?php if($selectedImg === 'butterflies.jpeg') echo 'checked' ?>>
+                                            <?php if ($selectedImg === 'butterflies.jpeg') echo 'checked' ?>>
                                         <img src='./static/img/butterflies.jpeg' class=''
                                              alt='butterflies'>
                                     </label>
                                 </div>
                                 <div class='col-3'>
                                     <label class="" for="option-4">
-                                        <input type="radio" id="option-4" class="mdl-radio__button" name="bgOption"
+                                        <input type="radio" id="option-4" class="mdl-radio__button" name="selectedImg"
                                                value="leaves.jpeg"
-                                            <?php if($selectedImg === 'leaves.jpeg') echo 'checked' ?>>
+                                            <?php if ($selectedImg === 'leaves.jpeg') echo 'checked' ?>>
                                         <img src='./static/img/leaves.jpeg' class='' alt='leaves'>
                                     </label>
                                 </div>
@@ -75,23 +75,41 @@
                                 <h5 class='mdl-card__title-text'>Add a quote</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield">
-                                <textarea class="mdl-textfield__input" type="text" rows= "2" id='quote' name='quote'
-                                          required
-                                ></textarea>
+                                    <textarea class="mdl-textfield__input" type="text" rows="2" id='quote'
+                                              name='quote'></textarea>
                                     <label class="mdl-textfield__label" for="quote">Quote...</label>
                                 </div>
+                                <?php
+                                    if ($errors['quote']) {
+                                        echo "
+                                            <div class='alert alert-danger mb-2'>
+                                                {$errors['quote']};
+                                            </div>
+                                        ";
+                                    }
+                                ?>
                                 <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                    <input class='mdl-textfield__input' type='text' id='bottomText' name='author' required>
+                                    <input class='mdl-textfield__input' type='text' id='bottomText' name='author'>
                                     <label class='mdl-textfield__label' for='author'>Author...</label>
                                 </div>
+                                <?php
+                                    if ($errors['author']) {
+                                        echo "
+                                            <div class='alert alert-danger mb-2'>
+                                                {$errors['author']};
+                                            </div>
+                                        ";
+                                    }
+                                ?>
                             </div>
-                            <div class='card bg-light border-0 py-3 px-3'>
+                            <div class='card bg-light border-0 mb-2 py-3 px-3'>
                                 <div class='card-body'>
                                     <div class='row'>
                                         <div class='col-10'>
-                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                                   for="checkbox-2">
                                                 <input type="checkbox" id="addBackground" class="mdl-checkbox__input"
-                                                       name='addBackground' <?php if(isset($addBackground) and
+                                                       name='addBackground' <?php if (isset($addBackground) and
                                                     $addBackground) echo checked ?> >
                                                 <label class='mdl-checkbox__label mdl-card__title-text'
                                                        for='addBackground'>Add Text Background</label>
@@ -100,7 +118,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class='card-body'>
                                 <button class=" float-right mdl-button mdl-js-button mdl-button--raised
                                 mdl-js-ripple-effect
@@ -118,24 +135,24 @@
                     <div class='wrap-quote mdl-card mdl-shadow--2dp'
                          style="<?php echo ($imgBg) ? $imgBg : "background-color:#313f48;" ?>"
                          id='myQuote'>
-                            <?php
-                                if(!$quote) {
-                                    echo "
+                        <?php
+                            if (!$quote) {
+                                echo "
                                         <div class='default_quote'>
                                             <span class='text__top'>\"A nice quote for a nice day!\"</span><br>
                                             <span class='text__top'>~&nbsp~&nbsp~</span>
                                         </div>
                                     ";
-                                }
-                            ?>
-                            <div class='<?php if($addBackground) echo $textBg?> quote-text text-center py-5'>
+                            }
+                        ?>
+                        <div class='<?php if ($addBackground) echo $textBg ?> quote-text text-center py-5'>
                                 <span class='text__top'><?php echo $quote
                                     ?></span>
-                                <br><br>
-                                <span class='text__top'><?php if(isset($author)) echo '~~ ' .
-                                        $author . ' ~~'
-                                    ?></span>
-                            </div>
+                            <br><br>
+                            <span class='text__top'><?php if (isset($author)) echo '~~ ' .
+                                    $author . ' ~~'
+                                ?></span>
+                        </div>
                     </div>
                     <br>
                     <p class='alert-info pl-3'>Right click on image, and choose <b>Save Image As...</b> to save your new
@@ -147,8 +164,10 @@
     </main>
 </div>
 <script>
-    html2canvas(document.getElementById('myQuote')).then(canvas => {document.getElementById('quoteImg').appendChild
-    (canvas)});
+    html2canvas(document.getElementById('myQuote')).then(canvas => {
+        document.getElementById('quoteImg').appendChild
+        (canvas)
+    });
 </script>
 
 </body>
