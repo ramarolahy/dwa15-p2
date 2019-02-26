@@ -83,7 +83,7 @@
                                     if ($errors['quote']) {
                                         echo "
                                             <div class='alert alert-danger mb-2'>
-                                                {$errors['quote']};
+                                                {$errors['quote']}
                                             </div>
                                         ";
                                     }
@@ -96,7 +96,7 @@
                                     if ($errors['author']) {
                                         echo "
                                             <div class='alert alert-danger mb-2'>
-                                                {$errors['author']};
+                                                {$errors['author']}
                                             </div>
                                         ";
                                     }
@@ -149,7 +149,7 @@
                                 <span class='text__top'><?php echo $quote
                                     ?></span>
                             <br><br>
-                            <span class='text__top'><?php if (isset($author)) echo '~~ ' .
+                            <span class='text__top'><?php if (isset($author) and $author != '') echo '~~ ' .
                                     $author . ' ~~'
                                 ?></span>
                         </div>

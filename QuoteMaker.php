@@ -23,7 +23,8 @@
             $imgBg = "background-image:url('/static/img/" . $selectedImg . "');";
         }
         else {
-            $imgBg = "background-image:url('/static/img/" . $bgImages[array_rand ($bgImages)] . "');";
+            $selectedImg = $bgImages[array_rand ($bgImages)];
+            $imgBg = "background-image:url('/static/img/" . $selectedImg . "');";
         }
         return $imgBg;
     }
