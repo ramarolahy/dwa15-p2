@@ -76,8 +76,8 @@
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <textarea class="mdl-textfield__input" type="text" rows="2" id='quote'
-                                              name='quote'></textarea>
-                                    <label class="mdl-textfield__label" for="quote">Quote...</label>
+                                              name='quote'><?php echo $quote ? $quote : null ?></textarea>
+                                    <label class="mdl-textfield__label" for="quote">Quote ...</label>
                                 </div>
                                 <?php
                                     if ($errors['quote']) {
@@ -89,7 +89,8 @@
                                     }
                                 ?>
                                 <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
-                                    <input class='mdl-textfield__input' type='text' id='bottomText' name='author'>
+                                    <input class='mdl-textfield__input' type='text' id='bottomText' name='author'
+                                           value=<?php echo $author ? $author : null ?>>
                                     <label class='mdl-textfield__label' for='author'>Author...</label>
                                 </div>
                                 <?php
@@ -110,7 +111,7 @@
                                                    for="checkbox-2">
                                                 <input type="checkbox" id="addBackground" class="mdl-checkbox__input"
                                                        name='addBackground' <?php if (isset($addBackground) and
-                                                    $addBackground) echo checked ?> >
+                                                    $addBackground and !$hasErrors) echo checked ?> >
                                                 <label class='mdl-checkbox__label mdl-card__title-text'
                                                        for='addBackground'>Add Text Background</label>
                                             </label>
@@ -136,7 +137,7 @@
                          style="<?php echo ($imgBg) ? $imgBg : "background-color:#313f48;" ?>"
                          id='myQuote'>
                         <?php
-                            if (!$quote) {
+                            if ($hasErrors) {
                                 echo "
                                         <div class='default_quote'>
                                             <span class='text__top'>\"A nice quote for a nice day!\"</span><br>
@@ -145,11 +146,11 @@
                                     ";
                             }
                         ?>
-                        <div class='<?php if ($addBackground) echo $textBg ?> quote-text text-center py-5'>
-                                <span class='text__top'><?php echo $quote
+                        <div class='<?php if (!$hasErrors) echo $textBg ?> quote-text text-center py-5'>
+                                <span class='text__top'><?php echo !$hasErrors ? $quote : null
                                     ?></span>
                             <br><br>
-                            <span class='text__top'><?php if (isset($author) and $author != '') echo '~~ ' .
+                            <span class='text__top'><?php if (!$hasErrors and $author != '') echo '~~ ' .
                                     $author . ' ~~'
                                 ?></span>
                         </div>
