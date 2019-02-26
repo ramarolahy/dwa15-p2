@@ -79,29 +79,21 @@
                                               name='quote'><?php echo $quote ? $quote : null ?></textarea>
                                     <label class="mdl-textfield__label" for="quote">Quote ...</label>
                                 </div>
-                                <?php
-                                    if ($errors['quote']) {
-                                        echo "
-                                            <div class='alert alert-danger mb-2'>
-                                                {$errors['quote']}
-                                            </div>
-                                        ";
-                                    }
-                                ?>
+                                <?php if ($errors['quote']) : ?>
+                                    <div class='alert alert-danger mb-2'>
+                                        <?= $errors['quote'] ?>
+                                    </div>
+                                <?php endif; ?>
                                 <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
                                     <input class='mdl-textfield__input' type='text' id='bottomText' name='author'
                                            value=<?php echo $author ? $author : null ?>>
                                     <label class='mdl-textfield__label' for='author'>Author...</label>
                                 </div>
-                                <?php
-                                    if ($errors['author']) {
-                                        echo "
-                                            <div class='alert alert-danger mb-2'>
-                                                {$errors['author']}
-                                            </div>
-                                        ";
-                                    }
-                                ?>
+                                <?php if ($errors['author']) : ?>
+                                    <div class='alert alert-danger mb-2'>
+                                        <?= $errors['author'] ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <div class='card bg-light border-0 mb-2 py-3 px-3'>
                                 <div class='card-body'>
@@ -136,30 +128,22 @@
                     <div class='wrap-quote mdl-card mdl-shadow--2dp'
                          style="<?php echo ($imgBg) ? $imgBg : "background-color:#313f48;" ?>"
                          id='myQuote'>
-                        <?php
-                            if ($hasErrors) {
-                                echo "
-                                        <div class='default_quote'>
-                                            <span class='text__top'>\"A nice quote for a nice day!\"</span><br>
-                                            <span class='text__top'>~&nbsp~&nbsp~</span>
-                                        </div>
-                                    ";
-                            }
-                        ?>
+                        <?php if ($hasErrors or !$quote) : ?>
+                            <div class='default_quote'>
+                                <span class='text__top'>"A nice quote for a nice day!"</span><br>
+                                <span class='text__top'>~&nbsp~&nbsp~</span>
+                            </div>
+                        <?php endif ?>
                         <div class='<?php if (!$hasErrors) echo $textBg ?> quote-text text-center py-5'>
-                                <span class='text__top'><?php echo !$hasErrors ? $quote : null
-                                    ?></span>
+                            <span class='text__top'><?php echo !$hasErrors ? $quote : null ?></span>
                             <br><br>
-                            <span class='text__top'><?php if (!$hasErrors and $author != '') echo '~~ ' .
-                                    $author . ' ~~'
-                                ?></span>
+                            <span class='text__top'><?php if (!$hasErrors and $author != '') echo '~~ ' . $author . ' ~~' ?></span>
                         </div>
                     </div>
                     <br>
                     <p class='alert-info pl-3'>Right click on image, and choose <b>Save Image As...</b> to save your new
                         quote card.</p>
                 </div>
-
             </div>
         </div>
     </main>
