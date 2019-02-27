@@ -70,7 +70,7 @@
                                                value="butterflies.jpeg"
                                             <?php if ( $selectedImg === "butterflies.jpeg" ) echo "checked" ?>>
                                         <img src="./static/img/butterflies.jpeg"
-                                            alt="butterflies">
+                                             alt="butterflies">
                                     </label>
                                 </div>
                                 <div class="col-3">
