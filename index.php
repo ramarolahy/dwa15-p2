@@ -146,7 +146,7 @@
                             <!-- Submit button -->
                             <div class="card-body">
                                 <button class=" float-right mdl-button mdl-js-button mdl-button--raised
-                                mdl-js-ripple-effect mdl-button--colored">
+                                mdl-js-ripple-effect mdl-button--colored" type="submit">
                                     Show me!
                                 </button>
                             </div>
