@@ -92,10 +92,10 @@
                                 <h5 class="mdl-card__title-text">Add a quote</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield">
-                                    <textarea class="mdl-textfield__input" rows="2" id="quote" name="quote">
-                                        <!--If filled, leave text on input area
-                                         in case
+                                    <!--If filled, leave text on input area
+                                    in case
                                         the user needs to make correction-->
+                                    <textarea class="mdl-textfield__input" rows="2" id="quote" name="quote">
                                         <?php echo $quote ? $quote : null ?>
                                     </textarea>
                                 </div>
