@@ -95,8 +95,6 @@
                                     <textarea class="mdl-textfield__input" rows="2" id="quote" name="quote">
                                         <?php echo $quote ? $quote : null ?>
                                     </textarea>
-                                    <label class="mdl-textfield__label"
-                                           for="quote">Quote ...</label>
                                 </div>
                                 <?php if ( $errors[ "quote" ] ) : ?>
                                     <div class="alert alert-danger mb-2">
@@ -108,7 +106,7 @@
                                     <input class="mdl-textfield__input"
                                            type="text" id="bottomText"
                                            name="author"
-                                           value=<?php echo $author ? $author : null ?>>
+                                           value="<?php echo $author ? $author : null ?>">
                                     <label class="mdl-textfield__label"
                                            for="bottomText">Author...</label>
                                 </div>
