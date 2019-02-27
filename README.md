@@ -5,6 +5,8 @@
 
 
 ## Outside resources
++ W3SCHOOLS: https://www.w3schools.com/php7/default.asp
+    For php references
 + Bootstrap: https://getbootstrap.com/
     For grid layout and components.
 + Material Design Lite: https://getmdl.io/
