@@ -93,9 +93,13 @@
 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <textarea class="mdl-textfield__input" rows="2" id="quote" name="quote">
+                                        <!--If filled, leave text on input area
+                                         in case
+                                        the user needs to make correction-->
                                         <?php echo $quote ? $quote : null ?>
                                     </textarea>
                                 </div>
+                                <!--If left empty, print error message-->
                                 <?php if ( $errors[ "quote" ] ) : ?>
                                     <div class="alert alert-danger mb-2">
                                         <?= $errors[ "quote" ] ?>
@@ -103,6 +107,9 @@
                                 <?php endif; ?>
                                 <div
                                     class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <!--If filled, leave text on input area
+                                         in case
+                                        the user needs to make correction-->
                                     <input class="mdl-textfield__input"
                                            type="text" id="bottomText"
                                            name="author"
@@ -110,6 +117,7 @@
                                     <label class="mdl-textfield__label"
                                            for="bottomText">Author...</label>
                                 </div>
+                                <!--If left empty, print error message-->
                                 <?php if ( $errors[ "author" ] ) : ?>
                                     <div class="alert alert-danger mb-2">
                                         <?= $errors[ "author" ] ?>
@@ -126,6 +134,9 @@
                                             <label
                                                 class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
                                                 for="addBackground">
+                                                <!--If previously checked,
+                                                leave checked, unless there
+                                                was error-->
                                                 <input type="checkbox"
                                                        id="addBackground"
                                                        class="mdl-checkbox__input"
@@ -163,14 +174,20 @@
                     <!-- Poster div -->
                     <div class="wrap-quote mdl-card mdl-shadow--2dp"
                          style="<?php echo ( $imgBg ) ? $imgBg : "background-color:#313f48;" ?>" id="myQuote">
+                        <!--On first load OR if there are errors, print default
+                        quote
+                        .-->
                         <?php if ( $hasErrors or !$quote ) : ?>
                             <div class="default_quote">
                                 <span class="text__top">"A nice quote for a nice day!"</span><br>
                                 <span class="text__top">~~~</span>
                             </div>
                         <?php endif ?>
-                        <div
-                            class="<?php if ( !$hasErrors ) echo $textBg ?> quote-text text-center py-5">
+                        <!--Add text background if no errors-->
+                        <div class="<?php if ( !$hasErrors ) echo $textBg ?>
+                        quote-text text-center py-5">
+                            <!--If there are no errors, print quote and
+                            author-->
                             <span
                                 class="text__top"><?php echo !$hasErrors ? $quote : null ?></span>
                             <br><br>

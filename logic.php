@@ -1,7 +1,8 @@
 <?php
-
+    # START SESSION
     session_start();
 
+    # Store values into variables and give access to index.php
     if (isset($_SESSION['state'])) {
         $state = $_SESSION['state'];
 
