@@ -94,9 +94,9 @@
                                 <h5 class='mdl-card__title-text'>Add a quote</h5>
 
                                 <div class="mdl-textfield mdl-js-textfield">
-                                    <textarea class="mdl-textfield__input"
-                                              type="text" rows="2" id='quote'
-                                              name='quote'><?php echo $quote ? $quote : null ?></textarea>
+                                    <textarea class="mdl-textfield__input" rows="2" id='quote' name='quote'>
+                                        <?php echo $quote ? $quote : null ?>
+                                    </textarea>
                                     <label class="mdl-textfield__label"
                                            for="quote">Quote ...</label>
                                 </div>
@@ -112,7 +112,7 @@
                                            name='author'
                                            value=<?php echo $author ? $author : null ?>>
                                     <label class='mdl-textfield__label'
-                                           for='author'>Author...</label>
+                                           for='bottomText'>Author...</label>
                                 </div>
                                 <?php if ( $errors[ 'author' ] ) : ?>
                                     <div class='alert alert-danger mb-2'>
@@ -129,15 +129,14 @@
                                         <div class='col-10'>
                                             <label
                                                 class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
-                                                for="checkbox-2">
+                                                for="addBackground">
                                                 <input type="checkbox"
                                                        id="addBackground"
                                                        class="mdl-checkbox__input"
                                                        name='addBackground' <?php if ( isset( $addBackground ) and
                                                     $addBackground and !$hasErrors ) echo checked ?> >
-                                                <label
-                                                    class='mdl-checkbox__label mdl-card__title-text'
-                                                    for='addBackground'>Add Text Background</label>
+                                                <span
+                                                    class='mdl-checkbox__label mdl-card__title-text'>Add Text Background</span>
                                             </label>
                                         </div>
                                     </div>
@@ -168,7 +167,7 @@
                         <?php if ( $hasErrors or !$quote ) : ?>
                             <div class='default_quote'>
                                 <span class='text__top'>"A nice quote for a nice day!"</span><br>
-                                <span class='text__top'>~&nbsp~&nbsp~</span>
+                                <span class='text__top'>~~~</span>
                             </div>
                         <?php endif ?>
                         <div

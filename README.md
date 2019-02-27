@@ -11,6 +11,8 @@
     For components.
 + html2canvas: https://html2canvas.hertzen.com/
     To change div into a canvas.
++ pexels: https://www.pexels.com/
+    This is where I got the background images
 
 ## 3 Unique inputs
 1. radio input to select background

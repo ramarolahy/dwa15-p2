@@ -33,7 +33,6 @@
         $imgBg = setBackground ();
     }
 
-
     $_SESSION[ 'state' ] = [
         'imgBg'         => $imgBg,
         'selectedImg'   => $selectedImg,
