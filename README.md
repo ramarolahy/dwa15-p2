@@ -23,4 +23,4 @@
 + I prefer to have my opening curly brackets on the same line because I got used to it in JS.
 
 ## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section*
+For UX purpose, I modified your Form.php and stored the errors into an Associative Array so I can display the error messages under each corresponding fields. 

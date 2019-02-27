@@ -19,7 +19,7 @@
         /**
          * Form constructor
          */
-        public function __construct (array $request) {
+        public function __construct ( array $request ) {
             # Store form data (POST or GET) in a class property called $request
             $this->request = $request;
         }
@@ -28,25 +28,25 @@
          * Returns true if *either* GET or POST have been submitted.
          */
         public function isSubmitted () {
-            return $_SERVER['REQUEST_METHOD'] == 'POST' || !empty($_GET);
+            return $_SERVER[ 'REQUEST_METHOD' ] == 'POST' || !empty( $_GET );
         }
 
         /**
          * Get a value from the request, with the option of including a default
          * if the value is not set.
-         * @param String $name: The input name.
-         * @param String $default:
+         * @param String $name    : The input name.
+         * @param String $default :
          * @return String $name or $default
          */
-        public function get (String $name, String $default = null) {
-            return $this->request[$name] ?? $default;
+        public function get ( String $name, String $default = null ) {
+            return $this->request[ $name ] ?? $default;
         }
 
         /**
          * Returns boolean as to whether a value is present in the request
          */
-        public function has (string $name) {
-            return isset($this->request[$name]);
+        public function has ( string $name ) {
+            return isset( $this->request[ $name ] );
         }
 
         /**
@@ -58,32 +58,32 @@
          * required, alpha, alphaNumeric, digit, numeric,
          * email, url, min:x, max:x, minLength:x, maxLength:x
          */
-        public function validate (array $fieldsToValidate) {
+        public function validate ( array $fieldsToValidate ) {
             $errors = [];
-            foreach ($fieldsToValidate as $fieldName => $rules) {
+            foreach ( $fieldsToValidate as $fieldName => $rules ) {
                 # Each rule is separated by a |
-                $rules = explode ('|', $rules);
-                foreach ($rules as $rule) {
+                $rules = explode ( '|', $rules );
+                foreach ( $rules as $rule ) {
                     # Get the value for this field from the request
-                    $value = $this->get ($fieldName);
+                    $value = $this->get ( $fieldName );
                     # Handle any parameters with the rule, e.g. max:99
                     $parameter = null;
-                    if (strstr ($rule, ':')) {
-                        list($rule, $parameter) = explode (':', $rule);
+                    if ( strstr ( $rule, ':' ) ) {
+                        list( $rule, $parameter ) = explode ( ':', $rule );
                     }
                     # Run the validation test with the given rule
-                    $test = $this->$rule($value, $parameter);
+                    $test = $this->$rule( $value, $parameter );
                     # Test failed
-                    if (!$test) {
+                    if ( !$test ) {
                         $method = $rule . 'Message';
-                        $errors[$fieldName] = 'The value for ' . $fieldName . ' ' . $this->$method($parameter);
+                        $errors[ $fieldName ] = 'The value for ' . $fieldName . ' ' . $this->$method( $parameter );
                         # Only indicate one error per field
                         break;
                     }
                 }
             }
             # Set public property hasErrors as Boolean
-            $this->hasErrors = !empty($errors);
+            $this->hasErrors = !empty( $errors );
             return $errors;
         }
         ### VALIDATION METHODS FOUND BELOW HERE ###
@@ -91,9 +91,9 @@
         /**
          * The value can not be blank
          */
-        protected function required ($value) {
-            $value = trim ($value);
-            return $value != '' && isset($value) && !is_null ($value);
+        protected function required ( $value ) {
+            $value = trim ( $value );
+            return $value != '' && isset( $value ) && !is_null ( $value );
         }
 
         protected function requiredMessage () {
@@ -103,8 +103,8 @@
         /**
          *  The value can only contain letters or spaces
          */
-        protected function alpha ($value) {
-            return ctype_alpha (str_replace (' ', '', $value));
+        protected function alpha ( $value ) {
+            return ctype_alpha ( str_replace ( ' ', '', $value ) );
         }
 
         protected function alphaMessage () {
@@ -114,8 +114,8 @@
         /**
          * The value can only contain alpha-numeric characters
          */
-        protected function alphaNumeric ($value) {
-            return ctype_alnum (str_replace (' ', '', $value));
+        protected function alphaNumeric ( $value ) {
+            return ctype_alnum ( str_replace ( ' ', '', $value ) );
         }
 
         protected function alphaNumericMessage () {
@@ -125,8 +125,8 @@
         /**
          * The value can only contain digits (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
          */
-        protected function digit ($value) {
-            return ctype_digit (str_replace (' ', '', $value));
+        protected function digit ( $value ) {
+            return ctype_digit ( str_replace ( ' ', '', $value ) );
         }
 
         protected function digitMessage () {
@@ -136,8 +136,8 @@
         /**
          * The value can only contain numbers
          */
-        protected function numeric ($value) {
-            return is_numeric (str_replace (' ', '', $value));
+        protected function numeric ( $value ) {
+            return is_numeric ( str_replace ( ' ', '', $value ) );
         }
 
         protected function numericMessage () {
@@ -147,8 +147,8 @@
         /**
          * The value must be a properly formatted email address
          */
-        protected function email ($value) {
-            return filter_var ($value, FILTER_VALIDATE_EMAIL);
+        protected function email ( $value ) {
+            return filter_var ( $value, FILTER_VALIDATE_EMAIL );
         }
 
         protected function emailMessage () {
@@ -158,8 +158,8 @@
         /**
          * The value must be a properly formatted URL
          */
-        protected function url ($value) {
-            return filter_var ($value, FILTER_VALIDATE_URL);
+        protected function url ( $value ) {
+            return filter_var ( $value, FILTER_VALIDATE_URL );
         }
 
         protected function urlMessage () {
@@ -167,26 +167,26 @@
         }
 
         /**
-         * The character count of the value must be LESS THAN (non-inclusive) the given parameter
-         * Fails if value is non-numeric
+         * The character count of the value must be LESS THAN (non-inclusive)
+         * the given parameter Fails if value is non-numeric
          */
-        protected function minLength ($value, $parameter) {
-            return strlen ($value) >= $parameter;
+        protected function minLength ( $value, $parameter ) {
+            return strlen ( $value ) >= $parameter;
         }
 
-        protected function minLengthMessage ($parameter) {
+        protected function minLengthMessage ( $parameter ) {
             return 'must be at least ' . $parameter . ' character(s) long';
         }
 
         /**
-         * The character count of the value must be LESS THAN (inclusive) the given parameter
-         * Fails if value is non-numeric
+         * The character count of the value must be LESS THAN (inclusive) the
+         * given parameter Fails if value is non-numeric
          */
-        protected function maxLength ($value, $parameter) {
-            return strlen ($value) <= $parameter;
+        protected function maxLength ( $value, $parameter ) {
+            return strlen ( $value ) <= $parameter;
         }
 
-        protected function maxLengthMessage ($parameter) {
+        protected function maxLengthMessage ( $parameter ) {
             return 'must be less than ' . $parameter . ' character(s) long';
         }
 
@@ -194,14 +194,14 @@
          * The value must be GREATER THAN (inclusive) the given parameter
          * Fails if value is non-numeric
          */
-        protected function min ($value, $parameter) {
-            if (!$this->numeric ($value)) {
+        protected function min ( $value, $parameter ) {
+            if ( !$this->numeric ( $value ) ) {
                 return false;
             }
-            return floatval ($value) >= floatval ($parameter);
+            return floatval ( $value ) >= floatval ( $parameter );
         }
 
-        protected function minMessage ($parameter) {
+        protected function minMessage ( $parameter ) {
             return 'must be greater than or equal to ' . $parameter;
         }
 
@@ -209,14 +209,14 @@
          * The value must be LESS THAN (inclusive) the given parameter
          * Fails if value is non-numeric
          */
-        protected function max ($value, $parameter) {
-            if (!$this->numeric ($value)) {
+        protected function max ( $value, $parameter ) {
+            if ( !$this->numeric ( $value ) ) {
                 return false;
             }
-            return floatval ($value) <= floatval ($parameter);
+            return floatval ( $value ) <= floatval ( $parameter );
         }
 
-        protected function maxMessage ($parameter) {
+        protected function maxMessage ( $parameter ) {
             return 'must be less than or equal to ' . $parameter;
         }
     }

@@ -3,50 +3,50 @@
     require './includes/helpers.php';
     require 'Form.php';
 
-    $form = new \p2\Form($_GET);
+    $form = new \p2\Form( $_GET );
 
-    $selectedImg = $form->get ('selectedImg');
-    $quote = $form->get ('quote');
-    $author = $form->get ('author');
-    $addBackground = $form->has ('addBackground');
+    $selectedImg = $form->get ( 'selectedImg' );
+    $quote = $form->get ( 'quote' );
+    $author = $form->get ( 'author' );
+    $addBackground = $form->has ( 'addBackground' );
     $textBg = 'quote-text__bg';
 
-    $errors = $form->validate ([
-                                   'quote' => 'required',
-                                   'author' => 'required'
-                               ]);
+    $errors = $form->validate ( [
+                                    'quote'  => 'required',
+                                    'author' => 'required'
+                                ] );
 
     function setBackground () {
-        $bgImages = ['butterflies.jpeg', 'fall.jpg', 'leaves.jpeg', 'road.jpeg'];
+        $bgImages = [ 'butterflies.jpeg', 'fall.jpg', 'leaves.jpeg', 'road.jpeg' ];
         global $selectedImg;
-        if ($_GET['bgOption']) {
+        if ( $_GET[ 'bgOption' ] ) {
             $imgBg = "background-image:url('/static/img/" . $selectedImg . "');";
         }
         else {
-            $selectedImg = $bgImages[array_rand ($bgImages)];
+            $selectedImg = $bgImages[ array_rand ( $bgImages ) ];
             $imgBg = "background-image:url('/static/img/" . $selectedImg . "');";
         }
         return $imgBg;
     }
 
-    if (!$form->hasErrors) {
+    if ( !$form->hasErrors ) {
         $imgBg = setBackground ();
     }
 
 
-    $_SESSION['state'] = [
-        'imgBg' => $imgBg,
-        'selectedImg' => $selectedImg,
-        'quote' => $quote,
-        'author' => $author,
+    $_SESSION[ 'state' ] = [
+        'imgBg'         => $imgBg,
+        'selectedImg'   => $selectedImg,
+        'quote'         => $quote,
+        'author'        => $author,
         'addBackground' => $addBackground,
-        'textBg' => $textBg,
-        'errors' => $errors,
-        'hasErrors' => $form->hasErrors
+        'textBg'        => $textBg,
+        'errors'        => $errors,
+        'hasErrors'     => $form->hasErrors
     ];
 
-//    dump($_SESSION['state']);
-//
-//    die();
+    //    dump($_SESSION['state']);
+    //
+    //    die();
 
-    header ('Location: index.php');
+    header ( 'Location: index.php' );
