@@ -95,8 +95,7 @@
                                     <!--If filled, leave text on input area
                                     in case
                                         the user needs to make correction-->
-                                    <textarea class="mdl-textfield__input" rows="2" id="quote" name="quote">
-                                        <?php echo $quote ? $quote : null ?>
+                                    <textarea class="mdl-textfield__input" rows="2" id="quote" name="quote"><?php echo $quote ? $quote : null ?>
                                     </textarea>
                                 </div>
                                 <!--If left empty, print error message-->

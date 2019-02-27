@@ -1,9 +1,9 @@
 <?php
-    require './includes/helpers.php';
-    require 'Form.php';
-
     # START SESSION
     session_start ();
+
+    require './includes/helpers.php';
+    require 'Form.php';
 
     # Create new instance of Form
     $form = new \p2\Form( $_GET );
@@ -29,7 +29,7 @@
     function setBackground () {
         $bgImages = [ 'butterflies.jpeg', 'fall.jpg', 'leaves.jpeg', 'road.jpeg' ];
         global $selectedImg;
-        if ( $_GET[ 'bgOption' ] ) {
+        if ( $_GET[ 'selectedImg' ] ) {
             $imgBg = "background-image:url('/static/img/" . $selectedImg . "');";
         }
         else {
